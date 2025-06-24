@@ -16,7 +16,7 @@ export default function Home() {
   const [verify, setVerify] = useState(null); // null = loading, false = failed, true = success
 
   useEffect(() => {
-    axios.post("http://localhost:4000/verify", {}, { withCredentials: true }).then((response) => {
+    axios.post("https://backend-store-bkh1.onrender.com/verify", {}, { withCredentials: true }).then((response) => {
         const { auth } = response.data;
         if(auth === true){
           setVerify(true);

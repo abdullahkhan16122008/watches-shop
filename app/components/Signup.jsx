@@ -20,7 +20,7 @@ let [form, setForm] = React.useState({
     }
     let handleSubmit = (e) => {
         e.preventDefault()
-        let response = axios.post('http://localhost:4000/signup', form).then((response)=>{
+        let response = axios.post('https://backend-store-bkh1.onrender.com/signup', form).then((response)=>{
             let {message, auth} = response.data;
             alert(message)
         })
