@@ -17,9 +17,9 @@ const Login = () => {
             [name]: value
         }))
     }
-    let handleSubmit = (e) => {
+    let handleSubmit = async (e) => {
         e.preventDefault()
-        let response = axios.post('https://backend-store-bkh1.onrender.com/login', form,{
+        let response = await axios.post('https://backend-store-bkh1.onrender.com/login', form,{
   withCredentials: true // ✅ MUST
 }).then((response) => {
             let { message, auth } = response.data;
