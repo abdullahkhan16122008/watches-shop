@@ -18,9 +18,9 @@ let [form, setForm] = React.useState({
             [name]: value
         }))
     }
-    let handleSubmit = (e) => {
+    let handleSubmit = async (e) => {
         e.preventDefault()
-        let response = axios.post('https://backend-store-bkh1.onrender.com/signup', { form },{ withCredentials: true }).then((response)=>{
+        let response = await axios.post('https://backend-store-bkh1.onrender.com/signup', form ,{ withCredentials: true }).then((response)=>{
             let {message, auth} = response.data;
             alert(message)
         })
@@ -34,7 +34,7 @@ let [form, setForm] = React.useState({
     return (
         <div className='justify-items-center'>
             <form method="post" onSubmit={handleSubmit} className='relative top-[150px] border-2 px-20 py-10' >
-                <h1 className='text-4xl text-center font-medium mb-10'>Login</h1>
+                <h1 className='text-4xl text-center font-medium mb-10'>Signup</h1>
                 <div>
                     <h2 className='my-3 text-xl'>Enter Name <span className='text-red-500'>*</span></h2>
                     <input type="text" name="name" id="" value={form.name} onChange={handleChange} className='px-3 py-1 w-[290px] border-1 ' />
