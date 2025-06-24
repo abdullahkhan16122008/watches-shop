@@ -23,7 +23,7 @@ let [form, setForm] = React.useState({
         let response = await axios.post('https://backend-store-bkh1.onrender.com/signup', form ,{ withCredentials: true }).then((response)=>{
             let {message, auth} = response.data;
             alert(message)
-        })
+        }).catch((response)=>{alert(response.data.message)})
         setForm({
             name: '',
             email: '',
