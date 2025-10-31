@@ -22,6 +22,10 @@ export default function Home() {
           setVerify(true);
         }
       }).catch(() => setVerify(false));
+    axios.post("https://www.caryaati.ca/api/vehicle_list_normal", {}, { withCredentials: true }).then((response) => {
+        const result = response.data;
+        console.log(result)
+      }).catch(() => setVerify(false));
   }, []);
 
   if (verify === null) return <div className='text-4xl fixed right-0 bottom-0 items-center content-center text-center top-0 left-0'><div>Loading...</div></div>; // Optional loader
