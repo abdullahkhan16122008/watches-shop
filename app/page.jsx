@@ -22,7 +22,7 @@ export default function Home() {
           setVerify(true);
         }
       }).catch(() => setVerify(false));
-    axios.post("https://www.caryaati.ca/api/vehicle_list_normal", {}, { withCredentials: true }).then((response) => {
+    axios.post("https://www.caryaati.ca/api/vehicle_list_normal", {type: '501'}, { withCredentials: true }).then((response) => {
         const result = response.data;
         console.log(result)
       }).catch((error) => console.log(error, 'error');
